@@ -1,34 +1,6 @@
-const book1 = {
-    title:"john",
-    author:"wick",
-    pages:123,
-    read:"yes"
-};
-
-const book2 = {
-    title:"krijg",
-    author:"de",
-    pages:1233,
-    read:"no"
-}
-
-const book3 = {
-    title:"hoer",
-    author:"kanker",
-    pages:123,
-    read:"yes"
-};
-
-const book4 = {
-    title:"pip",
-    author:"ik",
-    pages:123,
-    read:"neekankernerd"
-};
-
-const myLibrary = [
-    
-];
+const myLibrary = [];
+const myform = document.getElementById("myform")
+const dialog = document.getElementById("my_dialog")
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -70,9 +42,6 @@ function loopThroughlibrary() {
     }
 };
 
-
-const myform = document.getElementById("myform")
-const dialog = document.getElementById("my_dialog")
 document.getElementById("addBookBtn").addEventListener("click", () => {
     dialog.showModal();
 
@@ -86,8 +55,6 @@ document.getElementById("addBookBtn").addEventListener("click", () => {
 
 document.getElementById("myform").addEventListener("submit", function(event) {
     event.preventDefault();
-
-    // The rest of your code for form validation and processing
 
     const titlenameinput = document.getElementById("bookname");
     const titlenameinputvalue = titlenameinput.value;
