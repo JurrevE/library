@@ -9,7 +9,7 @@
 <body>
     <header> 
         <div id="library">Library</div>
-        <div id="login">Login</div>    
+
     </header>
     <div class="maincontent">
         <div id="addBookBtnDiv">
@@ -27,11 +27,11 @@
     <dialog id="my_dialog">
         <form action="post" id="myform">
             <label for="book_name"></label>
-            <input type="text" name="book_name" id="bookname" placeholder="title of book">
+            <input type="text" name="book_name" id="bookname" placeholder="title of book" required>
             <label for="author_name"></label>
-            <input type="text" name="author_name" id="authorname" placeholder="title of author">
+            <input type="text" name="author_name" id="authorname" placeholder="title of author" required>
             <label for="pages"></label>
-            <input type="number" name="pages" id="pagesnumber" max="10000" placeholder="396"> 
+            <input type="number" name="pages" id="pagesnumber" max="10000" placeholder="396" required> 
             <label class="readbook" for="read_book">Have you read this book?
             <input type="checkbox" name="read_book" id="readbook">
             </label>

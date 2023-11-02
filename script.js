@@ -3,7 +3,7 @@ const book1 = {
     author:"wick",
     pages:123,
     read:"yes"
-}
+};
 
 const book2 = {
     title:"krijg",
@@ -17,14 +17,14 @@ const book3 = {
     author:"kanker",
     pages:123,
     read:"yes"
-}
+};
 
 const book4 = {
     title:"pip",
     author:"ik",
     pages:123,
     read:"neekankernerd"
-}
+};
 
 const myLibrary = [
     book1, 
@@ -72,18 +72,25 @@ function loopThroughlibrary() {
         bookDiv.appendChild(bookRead);
         boekencontainer.appendChild(bookDiv);
     }
-}
+};
 
 loopThroughlibrary()
-
+const myform = document.getElementById("myform")
 const dialog = document.getElementById("my_dialog")
 document.getElementById("addBookBtn").addEventListener("click", () => {
     dialog.showModal();
 
     dialog.addEventListener('click', (e) => {
         if (e.target === dialog) {
-          dialog.close();
+            dialog.close();
+            myform.reset();
  }})
 })
+
+document.getElementById("myform").addEventListener("submit", function(event){
+    event.preventDefault()
+    dialog.close();
+    myform.reset();
+} )
 
 
