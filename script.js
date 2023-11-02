@@ -27,10 +27,7 @@ const book4 = {
 };
 
 const myLibrary = [
-    book1, 
-    book2,
-    book3,
-    book4,
+    
 ];
 
 function Book(title, author, pages, read) {
@@ -41,10 +38,7 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-    title = prompt("What is title?")
-    author = prompt("Who is author?")
-    pages = prompt("How many pages?")
-    read = prompt("Did you read book?")
+   
     const newBook = new Book(title, author, pages, read)
     console.log(newBook)
     myLibrary.push(newBook)
@@ -54,6 +48,7 @@ function addBookToLibrary() {
 function loopThroughlibrary() {
     for( let i = 0; i < myLibrary.length; i++) {
         console.log(myLibrary[i])
+        if (i === myLibrary.length - 1) {
         var bookDiv = document.createElement("div")
         bookDiv.setAttribute("class", "bookDiv")
         var bookTitle = document.createElement("p");
@@ -71,10 +66,11 @@ function loopThroughlibrary() {
         bookDiv.appendChild(bookPages);
         bookDiv.appendChild(bookRead);
         boekencontainer.appendChild(bookDiv);
+        }
     }
 };
 
-loopThroughlibrary()
+
 const myform = document.getElementById("myform")
 const dialog = document.getElementById("my_dialog")
 document.getElementById("addBookBtn").addEventListener("click", () => {
@@ -87,10 +83,28 @@ document.getElementById("addBookBtn").addEventListener("click", () => {
  }})
 })
 
-document.getElementById("myform").addEventListener("submit", function(event){
-    event.preventDefault()
+
+document.getElementById("myform").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // The rest of your code for form validation and processing
+
+    const titlenameinput = document.getElementById("bookname");
+    const titlenameinputvalue = titlenameinput.value;
+    const authornameinput = document.getElementById("authorname");
+    const authornamevalue = authornameinput.value;
+    const pagesnumberinput = document.getElementById("pagesnumber");
+    const pagesnumbervalue = pagesnumberinput.value;
+    const bookreadinput = document.getElementById("readbook");
+    const bookreadvalue = bookreadinput.checked
+    Book(titlenameinputvalue, authornamevalue, pagesnumbervalue, bookreadvalue)
+    addBookToLibrary()
+    loopThroughlibrary()
+
+    // Close the dialog and reset the form
     dialog.close();
     myform.reset();
-} )
+});
+
 
 

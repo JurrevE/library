@@ -55,7 +55,6 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 #library {
@@ -76,6 +75,9 @@ footer {
     display: grid;
     grid-template-rows: repeat(4, 1fr);
     max-height: 300px;
+    max-width: 300px;
+    min-height: 300px;
+    min-width: 300px;
     justify-content: center;
     align-items: center;
     font-weight: bolder;
@@ -89,13 +91,9 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     margin-left: 50px;
     margin-right: 50px;
+    justify-items: center; 
+    align-content: center;  
 }
-
-/* #my_dialog {
-    display: flex;
-    flex-direction: column;
-
-} */
 
 #my_dialog {
     height: 400px;
