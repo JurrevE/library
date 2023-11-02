@@ -24,7 +24,6 @@ const book4 = {
     author:"ik",
     pages:123,
     read:"neekankernerd"
-
 }
 
 const myLibrary = [
@@ -32,7 +31,6 @@ const myLibrary = [
     book2,
     book3,
     book4,
-  
 ];
 
 function Book(title, author, pages, read) {
@@ -76,8 +74,16 @@ function loopThroughlibrary() {
     }
 }
 
+loopThroughlibrary()
+
+const dialog = document.getElementById("my_dialog")
 document.getElementById("addBookBtn").addEventListener("click", () => {
-    alert("KRIJG KANKER!")
+    dialog.showModal();
+
+    dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) {
+          dialog.close();
+ }})
 })
 
-loopThroughlibrary()
+

@@ -90,3 +90,26 @@ footer {
     margin-left: 50px;
     margin-right: 50px;
 }
+
+/* #my_dialog {
+    display: flex;
+    flex-direction: column;
+
+} */
+
+#my_dialog {
+    height: 400px;
+    width: 300px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+  }
+
+  #myform {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
