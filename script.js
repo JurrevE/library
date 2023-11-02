@@ -12,9 +12,27 @@ const book2 = {
     read:"no"
 }
 
+const book3 = {
+    title:"hoer",
+    author:"kanker",
+    pages:123,
+    read:"yes"
+}
+
+const book4 = {
+    title:"pip",
+    author:"ik",
+    pages:123,
+    read:"neekankernerd"
+
+}
+
 const myLibrary = [
     book1, 
-    book2
+    book2,
+    book3,
+    book4,
+  
 ];
 
 function Book(title, author, pages, read) {
@@ -38,9 +56,28 @@ function addBookToLibrary() {
 function loopThroughlibrary() {
     for( let i = 0; i < myLibrary.length; i++) {
         console.log(myLibrary[i])
+        var bookDiv = document.createElement("div")
+        bookDiv.setAttribute("class", "bookDiv")
         var bookTitle = document.createElement("p");
-        bookTitle.textContent = "title" + ":"+myLibrary[i].title;
+        bookTitle.textContent = '"'+ myLibrary[i].title + `"`;
+        var bookAuthor = document.createElement("P");
+        bookAuthor.textContent = myLibrary[i].author;
+        var bookPages = document.createElement("p");
+        bookPages.textContent = myLibrary[i].pages + " Pages"
+        var bookRead = document.createElement("p");
+        bookRead.textContent = myLibrary[i].read;
+
         var boekencontainer = document.getElementById("boekencontainer");
-        boekencontainer.appendChild(bookTitle)
+        bookDiv.appendChild(bookTitle);
+        bookDiv.appendChild(bookAuthor);
+        bookDiv.appendChild(bookPages);
+        bookDiv.appendChild(bookRead);
+        boekencontainer.appendChild(bookDiv);
     }
 }
+
+document.getElementById("addBookBtn").addEventListener("click", () => {
+    alert("KRIJG KANKER!")
+})
+
+loopThroughlibrary()
