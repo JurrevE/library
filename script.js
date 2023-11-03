@@ -32,7 +32,13 @@ function loopThroughlibrary() {
         bookRead.textContent = myLibrary[i].read;
         var removeBtn = document.createElement("button");
         removeBtn.innerHTML = "Remove"
-        removeBtn.classList = "removeBtn"
+        removeBtn.className = "removeBtn"  
+        var removeBtn = document.createElement("button");
+        removeBtn.innerHTML = "Remove"
+        removeBtn.classList.add("removeBtn")
+        removeBtn.addEventListener("click",()=> {
+          window.alert('Hi');
+        })
 
 
         var boekencontainer = document.getElementById("boekencontainer");
@@ -76,5 +82,6 @@ document.getElementById("myform").addEventListener("submit", function(event) {
     dialog.close();
     myform.reset();
 });
+
 
 
