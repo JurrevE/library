@@ -1,6 +1,6 @@
 @font-face {
     font-family: Comfortaa ;
-    src: url(Comfortaa-Regular.ttf);
+    src: url(Comfortaa-VariableFont_wght.ttf)
 }
 :root {
     --firstcolor: #8f9491; 
@@ -127,6 +127,8 @@ footer {
     height: 50px;
     background-color: var(--thirdcolor);
     width: 200px;
+    font: x-large;
+    font-weight: bold;
 
   }
 
