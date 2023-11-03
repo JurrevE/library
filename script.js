@@ -9,17 +9,16 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-function addBookToLibrary() {
-   
-    const newBook = new Book(title, author, pages, read)
-    console.log(newBook)
-    myLibrary.push(newBook)
-    console.log(myLibrary)
-};
+function addBookToLibrary(title, author, pages, read) {
+    const newBook = new Book(title, author, pages, read);
+    newBook.number = myLibrary.length + 1;
+    myLibrary.push(newBook);
+    console.log(newBook);
+}
+
 
 function loopThroughlibrary() {
     for( let i = 0; i < myLibrary.length; i++) {
-        console.log(myLibrary[i])
         if (i === myLibrary.length - 1) {
         var bookDiv = document.createElement("div")
         bookDiv.setAttribute("class", "bookDiv")
@@ -33,7 +32,7 @@ function loopThroughlibrary() {
         bookRead.textContent = myLibrary[i].read;
         var removeBtn = document.createElement("button");
         removeBtn.innerHTML = "Remove"
-        removeBtn.id = "removeBtn"
+        removeBtn.classList = "removeBtn"
 
 
         var boekencontainer = document.getElementById("boekencontainer");
@@ -70,13 +69,12 @@ document.getElementById("myform").addEventListener("submit", function(event) {
     const bookreadinput = document.getElementById("readbook");
     const bookreadvalue = bookreadinput.checked
     Book(titlenameinputvalue, authornamevalue, pagesnumbervalue, bookreadvalue)
-    addBookToLibrary()
+    addBookToLibrary(titlenameinputvalue, authornamevalue, pagesnumbervalue, bookreadvalue);
     loopThroughlibrary()
 
     // Close the dialog and reset the form
     dialog.close();
     myform.reset();
 });
-
 
 
