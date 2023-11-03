@@ -37,9 +37,14 @@ function loopThroughlibrary() {
         removeBtn.innerHTML = "Remove"
         removeBtn.classList.add("removeBtn")
         removeBtn.addEventListener("click",()=> {
-          window.alert('Hi');
-        })
+          let bookvalue = myLibrary[i].number;
+          console.log(bookvalue)
+             myLibrary.foreach(function() {
+                console.log("je kanker ma")
 
+             })
+          })
+       
 
         var boekencontainer = document.getElementById("boekencontainer");
         bookDiv.appendChild(bookTitle);
