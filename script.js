@@ -31,12 +31,17 @@ function loopThroughlibrary() {
         bookPages.textContent = myLibrary[i].pages + " Pages"
         var bookRead = document.createElement("p");
         bookRead.textContent = myLibrary[i].read;
+        var removeBtn = document.createElement("button");
+        removeBtn.innerHTML = "Remove"
+        removeBtn.id = "removeBtn"
+
 
         var boekencontainer = document.getElementById("boekencontainer");
         bookDiv.appendChild(bookTitle);
         bookDiv.appendChild(bookAuthor);
         bookDiv.appendChild(bookPages);
         bookDiv.appendChild(bookRead);
+        bookDiv.append(removeBtn);
         boekencontainer.appendChild(bookDiv);
         }
     }

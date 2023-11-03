@@ -72,16 +72,15 @@ footer {
 .bookDiv {
     background-color: var(--secondcolor);
     margin: 10px;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    max-height: 300px;
-    max-width: 300px;
-    min-height: 300px;
-    min-width: 300px;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    font-weight: bolder;
-    font-size: large;
+    
+    max-height: 400px;
+    max-width: 300px;
+    min-height: 400px;
+    min-width: 300px;
     color: var(--thirdcolor);
     border-radius: 10px;
 }
@@ -122,6 +121,13 @@ footer {
   input {
     width: 90%;
     height: 25px;
+  }
+
+  #removeBtn {
+    height: 50px;
+    background-color: var(--thirdcolor);
+    width: 200px;
+
   }
 
  
