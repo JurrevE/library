@@ -2,6 +2,7 @@ const myLibrary = [];
 const myform = document.getElementById("myform")
 const dialog = document.getElementById("my_dialog")
 
+//works
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -9,58 +10,60 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+//works
 function addBookToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read);
-    newBook.number = myLibrary.length ;
+    newBook.number = myLibrary.length;
     myLibrary.push(newBook);
     console.log(newBook);
 }
 
+function removeBook(bookIndex) {
+    myLibrary.splice(bookIndex, 1)
+}
 
-function loopThroughlibrary() {
+
+function updateLibraryDisplay() {
+    const boekencontainer = document.getElementById("boekencontainer");
+    boekencontainer.innerHTML = ""; // Clear the container before adding books
+
     for (let i = 0; i < myLibrary.length; i++) {
-        if (i === myLibrary.length - 1) {
-            var bookDiv = document.createElement("div")
-            bookDiv.setAttribute("class", "bookDiv")
-            var bookTitle = document.createElement("p");
-            bookTitle.textContent = '"' + myLibrary[i].title + `"`;
-            var bookAuthor = document.createElement("P");
-            bookAuthor.textContent = myLibrary[i].author;
-            var bookPages = document.createElement("p");
-            bookPages.textContent = myLibrary[i].pages + " Pages"
-            var bookRead = document.createElement("p");
-            bookRead.textContent = myLibrary[i].read;
-            var removeBtn = document.createElement("button");
-            removeBtn.innerHTML = "Remove"
-            removeBtn.className = "removeBtn"
-            var removeBtn = document.createElement("button");
-            removeBtn.innerHTML = "Remove"
-            removeBtn.classList.add("removeBtn")
-            removeBtn.addEventListener("click", () => {
-                let bookvalue = myLibrary[i].number;
-                console.log(bookvalue);
-                let bookIndex = myLibrary.findIndex(book => book.number == bookvalue)
-                if (bookIndex !== -1) {
-                    myLibrary.splice(bookIndex)
-                    console.log("great succes!")
-                    bookDiv.remove()
-                }
 
+        let bookDiv = document.createElement("div");
+        bookDiv.setAttribute("class", "bookDiv");
 
-            })
+        let bookTitle = document.createElement("p");
+        bookTitle.textContent = '"' + myLibrary[i].title + `"`;
 
+        let bookAuthor = document.createElement("P");
+        bookAuthor.textContent = myLibrary[i].author;
 
-            var boekencontainer = document.getElementById("boekencontainer");
-            bookDiv.appendChild(bookTitle);
-            bookDiv.appendChild(bookAuthor);
-            bookDiv.appendChild(bookPages);
-            bookDiv.appendChild(bookRead);
-            bookDiv.append(removeBtn);
-            boekencontainer.appendChild(bookDiv);
-        }
+        let bookPages = document.createElement("p");
+        bookPages.textContent = myLibrary[i].pages + " Pages";
+
+        let bookRead = document.createElement("p");
+        bookRead.textContent = myLibrary[i].read;
+
+        let removeBtn = document.createElement("button");
+        removeBtn.innerHTML = "Remove";
+        removeBtn.classList.add("removeBtn");
+
+        removeBtn.addEventListener("click", () => {
+            removeBook(i)
+            updateLibraryDisplay()
+        })
+
+        bookDiv.appendChild(bookTitle);
+        bookDiv.appendChild(bookAuthor);
+        bookDiv.appendChild(bookPages);
+        bookDiv.appendChild(bookRead);
+        bookDiv.append(removeBtn);
+        boekencontainer.appendChild(bookDiv);
     }
-};
+}
 
+
+//works
 document.getElementById("addBookBtn").addEventListener("click", () => {
     dialog.showModal();
 
@@ -72,21 +75,17 @@ document.getElementById("addBookBtn").addEventListener("click", () => {
     })
 })
 
-
+//works
 document.getElementById("myform").addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const titlenameinput = document.getElementById("bookname");
-    const titlenameinputvalue = titlenameinput.value;
-    const authornameinput = document.getElementById("authorname");
-    const authornamevalue = authornameinput.value;
-    const pagesnumberinput = document.getElementById("pagesnumber");
-    const pagesnumbervalue = pagesnumberinput.value;
-    const bookreadinput = document.getElementById("readbook");
-    const bookreadvalue = bookreadinput.checked
+    const titlenameinputvalue = document.getElementById("bookname").value;
+    const authornamevalue = document.getElementById("authorname").value;
+    const pagesnumbervalue = document.getElementById("pagesnumber").value
+    const bookreadvalue = document.getElementById("readbook").checked
     Book(titlenameinputvalue, authornamevalue, pagesnumbervalue, bookreadvalue)
     addBookToLibrary(titlenameinputvalue, authornamevalue, pagesnumbervalue, bookreadvalue);
-    loopThroughlibrary()
+    updateLibraryDisplay()
 
     // Close the dialog and reset the form
     dialog.close();
