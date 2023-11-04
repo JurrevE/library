@@ -132,4 +132,10 @@ footer {
 
   }
 
- 
+ #readStatusBtn {
+    height: 50px;
+    background-color: var(--thirdcolor);
+    width: 200px;
+    font: x-large;
+    font-weight: bold;
+ }

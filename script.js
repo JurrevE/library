@@ -41,8 +41,14 @@ function updateLibraryDisplay() {
         let bookPages = document.createElement("p");
         bookPages.textContent = myLibrary[i].pages + " Pages";
 
-        let bookRead = document.createElement("p");
-        bookRead.textContent = myLibrary[i].read;
+        let readStatusBtn = document.createElement("button");
+        readStatusBtn.setAttribute("id", "readStatusBtn");
+        if (myLibrary[i].read == true) {
+            readStatusBtn.innerHTML = "Read"
+        } else {
+            readStatusBtn.innerHTML = "Not Read"
+        }
+        
 
         let removeBtn = document.createElement("button");
         removeBtn.innerHTML = "Remove";
@@ -56,7 +62,7 @@ function updateLibraryDisplay() {
         bookDiv.appendChild(bookTitle);
         bookDiv.appendChild(bookAuthor);
         bookDiv.appendChild(bookPages);
-        bookDiv.appendChild(bookRead);
+        bookDiv.appendChild(readStatusBtn)
         bookDiv.append(removeBtn);
         boekencontainer.appendChild(bookDiv);
     }
