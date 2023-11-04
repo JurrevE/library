@@ -11,7 +11,7 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read);
-    newBook.number = myLibrary.length + 1;
+    newBook.number = myLibrary.length ;
     myLibrary.push(newBook);
     console.log(newBook);
 }
@@ -41,7 +41,7 @@ function loopThroughlibrary() {
                 console.log(bookvalue);
                 let bookIndex = myLibrary.findIndex(book => book.number == bookvalue)
                 if (bookIndex !== -1) {
-                    myLibrary.splice(bookIndex, 1)
+                    myLibrary.splice(bookIndex)
                     console.log("great succes!")
                     bookDiv.remove()
                 }
