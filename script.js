@@ -48,22 +48,12 @@ function updateLibraryDisplay() {
             readStatusBtn.innerHTML = "Not Read";
             readStatusBtn.classList.add("readno")
         }
-        let isActive = true;
+        
         readStatusBtn.addEventListener("click", function() {
-            isActive =! isActive;
-
-            if(isActive) {
-                readStatusBtn.classList.remove("readno")
-                readStatusBtn.classList.add("readyes")
-                readStatusBtn.innerHTML = "";
-                readStatusBtn.innerHTML = "Read";
-            } else {
-                readStatusBtn.classList.remove("readyes")
-                readStatusBtn.classList.add("readno")
-                readStatusBtn.innerHTM = "";
-                readStatusBtn.innerHTML = "Not Read";
-            }  
-        })
+            myLibrary[i].read = !myLibrary[i].read; // Toggle the read status
+            updateLibraryDisplay(); // Update the display to reflect the change
+        });
+        
 
         let removeBtn = document.createElement("button");
         removeBtn.innerHTML = "Remove";
