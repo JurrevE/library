@@ -102,43 +102,45 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-  }
+}
 
-  #myform {
+#myform {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-  }
-  .readbook {
+}
+
+.readbook {
     width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+}
 
-  input {
+input {
     width: 90%;
     height: 25px;
-  }
+}
 
-  .removeBtn {
+.removeBtn {
     height: 50px;
     background-color: var(--thirdcolor);
     width: 200px;
     font: x-large;
     font-weight: bold;
 
-  }
+}
 
- .readStatusBtn {
+#readStatusBtn {
     height: 50px;
-    background-color: var(--thirdcolor);
+    
     width: 200px;
     font: x-large;
     font-weight: bold;
- }
+    
+}
 
 
 .readyes {

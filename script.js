@@ -40,12 +40,30 @@ function updateLibraryDisplay() {
         bookPages.textContent = myLibrary[i].pages + " Pages";
 
         let readStatusBtn = document.createElement("button");
-        readStatusBtn.classList.add("readStatusBtn");
+        readStatusBtn.setAttribute("id", "readStatusBtn");
         if (myLibrary[i].read === true) {
             readStatusBtn.innerHTML = "Read";
+            readStatusBtn.classList.add("readyes")
         } else {
             readStatusBtn.innerHTML = "Not Read";
+            readStatusBtn.classList.add("readno")
         }
+        let isActive = true;
+        readStatusBtn.addEventListener("click", function() {
+            isActive =! isActive;
+
+            if(isActive) {
+                readStatusBtn.classList.remove("readno")
+                readStatusBtn.classList.add("readyes")
+                readStatusBtn.innerHTML = "";
+                readStatusBtn.innerHTML = "Read";
+            } else {
+                readStatusBtn.classList.remove("readyes")
+                readStatusBtn.classList.add("readno")
+                readStatusBtn.innerHTM = "";
+                readStatusBtn.innerHTML = "Not Read";
+            }  
+        })
 
         let removeBtn = document.createElement("button");
         removeBtn.innerHTML = "Remove";
@@ -53,16 +71,6 @@ function updateLibraryDisplay() {
 
         removeBtn.addEventListener("click", () => {
             removeBook(i);
-        });
-
-        readStatusBtn.addEventListener("click", () => {
-            if(myLibrary.read == true) {
-                readStatusBtn.innerHTML = "Read"
-                readStatusBtn.classList.add("readyes")
-
-            } else {
-                readStatusBtn.innerHTML = "Not Read"
-            }
         });
 
         bookDiv.appendChild(bookTitle);
