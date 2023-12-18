@@ -2,13 +2,14 @@ const myLibrary = [];
 const myform = document.getElementById("myform");
 const dialog = document.getElementById("my_dialog");
 
-function Book(title, author, pages, read) {
+class Book { 
+    constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    return this; // Add this line to return the created object
-}
+    return this; 
+}}
 
 function addBookToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read);
@@ -93,7 +94,7 @@ document.getElementById("myform").addEventListener("submit", function (event) {
     addBookToLibrary(titlenameinputvalue, authornamevalue, pagesnumbervalue, bookreadvalue);
     updateLibraryDisplay();
 
-    // Close the dialog and reset the form
+
     dialog.close();
     myform.reset();
 });

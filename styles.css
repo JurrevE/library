@@ -130,15 +130,16 @@ input {
     width: 200px;
     font: x-large;
     font-weight: bold;
+    border-radius: 10px;
 
 }
 
 #readStatusBtn {
     height: 50px;
-    
     width: 200px;
     font: x-large;
     font-weight: bold;
+    border-radius: 10px;
     
 }
 
